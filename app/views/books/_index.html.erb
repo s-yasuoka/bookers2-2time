@@ -1,0 +1,16 @@
+<h1>Books</h1>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+    <tr>
+    <% books.each do |book| %>
+      <td><%= image_tag book.user.get_profile_image(50,50) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+    <% end %>
+
+  </table>
