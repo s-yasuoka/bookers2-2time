@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # get 'users/index'
   # get 'users/show'
   # get 'users/edit'
-  get 'homes/about' => "homes#about", as:"about"
+  get 'home/about' => "homes#about", as:"about"
   root to:"homes#top"
 
 
