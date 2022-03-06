@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     if @book.user == current_user
       render "edit"
     else
-      render "/books"
+      redirect_to "/books"
     end
   end
 
@@ -35,9 +35,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.user == current_user
       @book.update(book_params)
-      redirect_to book_path(@book), notice: "You have updated book successfully."
+      redirect_to book_path, notice: "You have updated book successfully."
     else
-      render user_path(current_user)
+      render edit_book_path(@book)
     end
   end
 
@@ -45,9 +45,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.user == current_user
       @book.destroy
-      redirect_to user_path(current_user)
+      redirect_to "/books"
     else
-      render user_path(current_user)
+      render book_path
     end
   end
 
