@@ -1,6 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
+       <!--エラーメッセージ-->
+    <div class="text-danger">
+      <% if @user.errors.any? %>
+        <%= pluralize(@user.errors.count,"error") %> prohibited this obj from being saved:
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+
+    </div>
       <h1>User info</h1>
       <%= form_with model:@user do |f| %>
         <div class="form-group">
